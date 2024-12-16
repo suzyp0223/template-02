@@ -19,19 +19,19 @@ const AnalogClock = $container => {
   let hours = date.getHours();
 
   // 초침 각도 계산 및 업데이트
-  const sec_angle = sec * 6;  // 초당 6도
-  $h_second.style.setProperty('--deg', sec_angle);
+  const sec_deg = sec * 6;  // 초당 6도
+  $h_second.style.setProperty('--deg', sec_deg);
 
   // 분침 각도 계산 및 업데이트
-  const min_angle = min * 6;  // 분당 6도 + 초당 미세 이동 /분침이 초당 0.1도씩
-  $h_minute.style.setProperty('--deg', min_angle);
+  const min_deg = min * 6;  // 분당 6도 + 초당 미세 이동 /분침이 초당 0.1도씩
+  $h_minute.style.setProperty('--deg', min_deg);
 
   // 시침 각도 계산 및 업데이트
   if (hours >= 12) hours -= 12;  // 12시간제 변환
 
 
-  const hours_angle = (hours * 30) + (min * 0.5);  // 시간당 30도 + 분당 미세 이동 /시침이 분당 0.5도씩
-  $h_hour.style.setProperty('--deg', hours_angle);
+  const hours_deg = (hours * 30) + (min * 0.5);  // 시간당 30도 + 분당 미세 이동 /시침이 분당 0.5도씩
+  $h_hour.style.setProperty('--deg', hours_deg);
 
   // 매초 시계를 업데이트하는 반복 호출
   requestAnimationFrame(AnalogClock, 1000); // 1초마다 업데이트
